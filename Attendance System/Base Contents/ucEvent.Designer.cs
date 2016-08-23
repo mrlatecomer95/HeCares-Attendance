@@ -34,9 +34,11 @@
             this.EventListGrid = new DevExpress.XtraGrid.GridControl();
             this.EventListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repEvntSeries = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repEvntCourse = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -52,8 +54,6 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.repEvntCourse = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repEvntSeries = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -62,6 +62,8 @@
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EventListGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EventListView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEvntSeries)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEvntCourse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -79,8 +81,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repEvntCourse)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repEvntSeries)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -150,12 +150,27 @@
             // 
             // gridColumn3
             // 
-            this.gridColumn3.Caption = "FKeySeries";
+            this.gridColumn3.Caption = "Series";
             this.gridColumn3.ColumnEdit = this.repEvntSeries;
             this.gridColumn3.FieldName = "FKeySeries";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.VisibleIndex = 3;
+            // 
+            // repEvntSeries
+            // 
+            this.repEvntSeries.AutoHeight = false;
+            this.repEvntSeries.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repEvntSeries.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
+            this.repEvntSeries.DisplayMember = "Name";
+            this.repEvntSeries.Name = "repEvntSeries";
+            this.repEvntSeries.NullText = "";
+            this.repEvntSeries.ShowFooter = false;
+            this.repEvntSeries.ShowHeader = false;
+            this.repEvntSeries.ValueMember = "ID";
             // 
             // gridColumn1
             // 
@@ -175,12 +190,27 @@
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "FKeyCourse";
+            this.gridColumn4.Caption = "Course";
             this.gridColumn4.ColumnEdit = this.repEvntCourse;
             this.gridColumn4.FieldName = "FKeyCourse";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.VisibleIndex = 2;
+            // 
+            // repEvntCourse
+            // 
+            this.repEvntCourse.AutoHeight = false;
+            this.repEvntCourse.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repEvntCourse.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
+            this.repEvntCourse.DisplayMember = "Name";
+            this.repEvntCourse.Name = "repEvntCourse";
+            this.repEvntCourse.NullText = "";
+            this.repEvntCourse.ShowFooter = false;
+            this.repEvntCourse.ShowHeader = false;
+            this.repEvntCourse.ValueMember = "ID";
             // 
             // layoutControlGroup3
             // 
@@ -363,36 +393,6 @@
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(65, 13);
             // 
-            // repEvntCourse
-            // 
-            this.repEvntCourse.AutoHeight = false;
-            this.repEvntCourse.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repEvntCourse.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
-            this.repEvntCourse.DisplayMember = "Name";
-            this.repEvntCourse.Name = "repEvntCourse";
-            this.repEvntCourse.NullText = "";
-            this.repEvntCourse.ShowFooter = false;
-            this.repEvntCourse.ShowHeader = false;
-            this.repEvntCourse.ValueMember = "ID";
-            // 
-            // repEvntSeries
-            // 
-            this.repEvntSeries.AutoHeight = false;
-            this.repEvntSeries.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repEvntSeries.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
-            this.repEvntSeries.DisplayMember = "Name";
-            this.repEvntSeries.Name = "repEvntSeries";
-            this.repEvntSeries.NullText = "";
-            this.repEvntSeries.ShowFooter = false;
-            this.repEvntSeries.ShowHeader = false;
-            this.repEvntSeries.ValueMember = "ID";
-            // 
             // ucEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,6 +407,8 @@
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.EventListGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EventListView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEvntSeries)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEvntCourse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -424,8 +426,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repEvntCourse)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repEvntSeries)).EndInit();
             this.ResumeLayout(false);
 
         }
