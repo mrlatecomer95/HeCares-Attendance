@@ -36,6 +36,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repEvntSeries = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repEvnttxtDate = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repEvntCourse = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -63,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.EventListGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EventListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repEvntSeries)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEvnttxtDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repEvntCourse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
@@ -106,7 +108,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.layoutControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(904, 361);
-            this.splitContainerControl1.SplitterPosition = 292;
+            this.splitContainerControl1.SplitterPosition = 354;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -117,7 +119,7 @@
             this.layoutControl2.Location = new System.Drawing.Point(0, 0);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup3;
-            this.layoutControl2.Size = new System.Drawing.Size(292, 361);
+            this.layoutControl2.Size = new System.Drawing.Size(354, 361);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -128,8 +130,9 @@
             this.EventListGrid.Name = "EventListGrid";
             this.EventListGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repEvntCourse,
-            this.repEvntSeries});
-            this.EventListGrid.Size = new System.Drawing.Size(282, 332);
+            this.repEvntSeries,
+            this.repEvnttxtDate});
+            this.EventListGrid.Size = new System.Drawing.Size(344, 332);
             this.EventListGrid.TabIndex = 4;
             this.EventListGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.EventListView});
@@ -155,7 +158,8 @@
             this.gridColumn3.FieldName = "FKeySeries";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
+            this.gridColumn3.VisibleIndex = 1;
+            this.gridColumn3.Width = 263;
             // 
             // repEvntSeries
             // 
@@ -175,10 +179,20 @@
             // gridColumn1
             // 
             this.gridColumn1.Caption = "Date Created";
+            this.gridColumn1.ColumnEdit = this.repEvnttxtDate;
             this.gridColumn1.FieldName = "DateCreated";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.VisibleIndex = 2;
+            this.gridColumn1.Width = 267;
+            // 
+            // repEvnttxtDate
+            // 
+            this.repEvnttxtDate.AutoHeight = false;
+            this.repEvnttxtDate.Mask.EditMask = "dd-MMMM-yyyy";
+            this.repEvnttxtDate.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
+            this.repEvnttxtDate.Mask.UseMaskAsDisplayFormat = true;
+            this.repEvnttxtDate.Name = "repEvnttxtDate";
             // 
             // gridColumn2
             // 
@@ -186,7 +200,8 @@
             this.gridColumn2.FieldName = "Remarks";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.VisibleIndex = 3;
+            this.gridColumn2.Width = 307;
             // 
             // gridColumn4
             // 
@@ -195,7 +210,8 @@
             this.gridColumn4.FieldName = "FKeyCourse";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.VisibleIndex = 0;
+            this.gridColumn4.Width = 299;
             // 
             // repEvntCourse
             // 
@@ -221,7 +237,7 @@
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup3.Size = new System.Drawing.Size(292, 361);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(354, 361);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlGroup4
@@ -233,7 +249,7 @@
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup4.Size = new System.Drawing.Size(292, 361);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(354, 361);
             this.layoutControlGroup4.Text = "Events";
             // 
             // layoutControlItem1
@@ -241,7 +257,7 @@
             this.layoutControlItem1.Control = this.EventListGrid;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(286, 336);
+            this.layoutControlItem1.Size = new System.Drawing.Size(348, 336);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -255,7 +271,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(607, 361);
+            this.layoutControl1.Size = new System.Drawing.Size(545, 361);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -263,20 +279,20 @@
             // 
             this.txtRemarks.Location = new System.Drawing.Point(14, 129);
             this.txtRemarks.Name = "txtRemarks";
-            this.txtRemarks.Size = new System.Drawing.Size(579, 99);
+            this.txtRemarks.Size = new System.Drawing.Size(517, 99);
             this.txtRemarks.StyleController = this.layoutControl1;
             this.txtRemarks.TabIndex = 6;
             // 
             // txtDateCreated
             // 
             this.txtDateCreated.EditValue = null;
-            this.txtDateCreated.Location = new System.Drawing.Point(213, 89);
+            this.txtDateCreated.Location = new System.Drawing.Point(192, 89);
             this.txtDateCreated.Name = "txtDateCreated";
             this.txtDateCreated.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtDateCreated.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtDateCreated.Size = new System.Drawing.Size(380, 20);
+            this.txtDateCreated.Size = new System.Drawing.Size(339, 20);
             this.txtDateCreated.StyleController = this.layoutControl1;
             this.txtDateCreated.TabIndex = 5;
             // 
@@ -294,7 +310,7 @@
             this.cboCourse.Properties.ShowFooter = false;
             this.cboCourse.Properties.ShowHeader = false;
             this.cboCourse.Properties.ValueMember = "ID";
-            this.cboCourse.Size = new System.Drawing.Size(579, 20);
+            this.cboCourse.Size = new System.Drawing.Size(517, 20);
             this.cboCourse.StyleController = this.layoutControl1;
             this.cboCourse.TabIndex = 4;
             this.cboCourse.EditValueChanged += new System.EventHandler(this.cboCourse_EditValueChanged);
@@ -313,7 +329,7 @@
             this.cboSeries.Properties.ShowFooter = false;
             this.cboSeries.Properties.ShowHeader = false;
             this.cboSeries.Properties.ValueMember = "ID";
-            this.cboSeries.Size = new System.Drawing.Size(195, 20);
+            this.cboSeries.Size = new System.Drawing.Size(174, 20);
             this.cboSeries.StyleController = this.layoutControl1;
             this.cboSeries.TabIndex = 4;
             // 
@@ -326,7 +342,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(607, 361);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(545, 361);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // LCGEventDetails
@@ -341,7 +357,7 @@
             this.layoutControlItem5});
             this.LCGEventDetails.Location = new System.Drawing.Point(0, 0);
             this.LCGEventDetails.Name = "LCGEventDetails";
-            this.LCGEventDetails.Size = new System.Drawing.Size(607, 361);
+            this.LCGEventDetails.Size = new System.Drawing.Size(545, 361);
             this.LCGEventDetails.Text = "Event Details";
             // 
             // layoutControlItem2
@@ -349,7 +365,7 @@
             this.layoutControlItem2.Control = this.cboCourse;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(583, 40);
+            this.layoutControlItem2.Size = new System.Drawing.Size(521, 40);
             this.layoutControlItem2.Text = "Course";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(65, 13);
@@ -360,7 +376,7 @@
             this.layoutControlItem3.CustomizationFormText = "Course";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 40);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(199, 40);
+            this.layoutControlItem3.Size = new System.Drawing.Size(178, 40);
             this.layoutControlItem3.Text = "Series";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(65, 13);
@@ -368,9 +384,9 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.txtDateCreated;
-            this.layoutControlItem4.Location = new System.Drawing.Point(199, 40);
+            this.layoutControlItem4.Location = new System.Drawing.Point(178, 40);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(384, 40);
+            this.layoutControlItem4.Size = new System.Drawing.Size(343, 40);
             this.layoutControlItem4.Text = "Date Created";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(65, 13);
@@ -388,7 +404,7 @@
             this.layoutControlItem5.Control = this.txtRemarks;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 80);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(583, 119);
+            this.layoutControlItem5.Size = new System.Drawing.Size(521, 119);
             this.layoutControlItem5.Text = "Remarks";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(65, 13);
@@ -408,6 +424,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.EventListGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EventListView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repEvntSeries)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEvnttxtDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repEvntCourse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
@@ -458,5 +475,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repEvntSeries;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repEvntCourse;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repEvnttxtDate;
     }
 }
