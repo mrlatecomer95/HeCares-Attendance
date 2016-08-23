@@ -24,6 +24,7 @@ namespace Attendance_System.Base_Contents
             cboCourse.Properties.DataSource = tblCourse;
             repEvntCourse.DataSource = tblCourse;
             repEvntSeries.DataSource = tblSeries;
+            MakeViewReadOnly(EventListView, true);
         }
 
         private void InitDatatable()

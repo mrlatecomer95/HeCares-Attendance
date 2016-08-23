@@ -252,7 +252,7 @@ namespace BaseControl
             }
             #endregion
         #region GridView
-            private void MakeViewReadOnly(DevExpress.XtraGrid.Views.Grid.GridView _GridView, bool value)
+            protected void MakeViewReadOnly(DevExpress.XtraGrid.Views.Grid.GridView _GridView, bool value)
             {
                 _GridView.OptionsBehavior.ReadOnly = value;
             }
