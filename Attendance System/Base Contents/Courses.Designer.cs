@@ -75,6 +75,7 @@
             this.SeriesView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.SeriesView_RowCellStyle);
             this.SeriesView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.SeriesView_InitNewRow);
             this.SeriesView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.SeriesView_CellValueChanged);
+            this.SeriesView.GotFocus += new System.EventHandler(this.SeriesView_GotFocus);
             // 
             // gridColumn8
             // 
@@ -163,6 +164,7 @@
             this.CourseView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.CourseView_InitNewRow);
             this.CourseView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.CourseView_FocusedRowChanged);
             this.CourseView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CourseView_CellValueChanged);
+            this.CourseView.GotFocus += new System.EventHandler(this.CourseView_GotFocus);
             // 
             // gridColumn1
             // 

@@ -1,4 +1,0 @@
-﻿namespace Attendance_System
-{
-
-}

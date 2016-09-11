@@ -21,7 +21,8 @@ namespace BaseControl
         }
 
         #region Declaration
-            public OLEDB DB;
+            //public OLEDB DB;
+            public SQLite DB;
             protected bool isLoaded = false;
             protected BaseModule bModule = new BaseModule();
         #endregion

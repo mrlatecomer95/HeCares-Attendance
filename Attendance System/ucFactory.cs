@@ -38,6 +38,7 @@ namespace Attendance_System
             return _Biodata;
         }
 
+            
         //Courses
         static BaseContent _Courses = null;
         protected static BaseContent Courses()

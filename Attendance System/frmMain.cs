@@ -84,10 +84,10 @@ namespace Attendance_System
             LoadData();
         }
         
-        /// <summary>
+       /// <summary>
         /// Load Objects to Pannel
         /// </summary>
-        /// <param name="ObjectID"></param>
+        /// <param name="ObjectID"></param> 
         private void LoadObject(string ObjectID) {
             _BaseContent = ucFactory.LoadContentItem(ObjectID);
             if (_BaseContent != null)
@@ -131,7 +131,8 @@ namespace Attendance_System
             strConn = Attendance_System.Properties.Settings.Default["AttendanceConnectionString"].ToString();
             try
             {
-                GLOBALS.AttendanceDB = new DataFactory.OLEDB(strConn);
+                //GLOBALS.AttendanceDB = new DataFactory.OLEDB(strConn);
+                GLOBALS.AttendanceDB = new DataFactory.SQLite(strConn);
                 GLOBALS.AttendanceDB.setConnectionString = strConn;
                 if (GLOBALS.AttendanceDB.TestConnection(strConn))
                 {

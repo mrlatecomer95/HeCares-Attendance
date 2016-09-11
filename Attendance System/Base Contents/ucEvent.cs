@@ -129,7 +129,15 @@ namespace Attendance_System.Base_Contents
             DevExpress.XtraEditors.LookUpEdit _l = (DevExpress.XtraEditors.LookUpEdit)sender;
             if (_l.EditValue != null)
             {
-                cboSeries.Properties.DataSource = tblSeries.Select("FKeyCourse = " + _l.EditValue).CopyToDataTable();
+                if (tblSeries.Select("FKeyCourse = " + _l.EditValue).Length > 0)
+                {
+                    cboSeries.Properties.DataSource = tblSeries.Select("FKeyCourse = " + _l.EditValue).CopyToDataTable();
+                }
+                else
+                {
+                    cboCourse.Properties.DataSource = tblSeries.Clone();
+                }
+                
             }
         }
 

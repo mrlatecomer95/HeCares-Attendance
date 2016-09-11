@@ -15,6 +15,7 @@ namespace Attendance_System
         {
             InitializeComponent();
         }
+        DevExpress.XtraGrid.Views.Grid.GridView selectedGrid = null;
 
         #region Initializations
 
@@ -122,6 +123,34 @@ namespace Attendance_System
         public override void DeleteData()
         {
             base.DeleteData();
+            //CourseView.GetFocusedRowCellValue(""
+            //MessageBox.Show(selectedGrid.Name);
+            bool isInserted = false;
+            if (selectedGrid.Name.Equals(CourseView.Name))
+            {
+                if (MessageBox.Show("Are you sure you want to delete the Course ["+ CourseView.GetFocusedRowCellValue("Name").ToString() +"]?",ProductName,MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    isInserted = DB.RunSql("DELETE FROM tblAdmCourse WHERE ID=" + CourseView.GetFocusedRowCellValue("ID").ToString() );
+                }
+            }
+            else if(selectedGrid.Name.Equals(SeriesView.Name))
+            {
+       
+                DevExpress.XtraGrid.Views.Grid.GridView sGrid = (DevExpress.XtraGrid.Views.Grid.GridView)CourseView.GetDetailView(CourseView.FocusedRowHandle, 0);
+                if (sGrid != null)
+                {
+                    if (MessageBox.Show("Are you sure you want to delete the Course ["+ sGrid.GetFocusedRowCellValue("Name").ToString() +"]?",ProductName,MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        isInserted = DB.RunSql("DELETE FROM tblCourseSeries WHERE ID=" + sGrid.GetFocusedRowCellValue("ID").ToString() );
+                    }
+                }
+            }
+            bModule.GetMessage(4, isInserted);
+            if (isInserted)
+            {
+                RefreshData();
+            }
+
         }
 
         #endregion
@@ -138,9 +167,9 @@ namespace Attendance_System
             {
                 sqlConn.Open();
                 sqlTrans = sqlConn.BeginTransaction();
-                for (int i = 0; i < CourseView.RowCount; i++)
+                for (int i = 0; i < CourseView.DataRowCount; i++)
                 {
-                    if (Convert.ToBoolean(CourseView.GetRowCellValue(i, "Edited")))
+                    if (CourseView.GetRowCellValue(i, "Edited").ToString().Equals("1")?true:false)
                     {
                         if (string.IsNullOrEmpty(CourseView.GetRowCellValue(i, "ID").ToString()))
                         {
@@ -200,56 +229,62 @@ namespace Attendance_System
 
                         //Child Sub View
                         DevExpress.XtraGrid.Views.Grid.GridView childView = (DevExpress.XtraGrid.Views.Grid.GridView)CourseView.GetDetailView(i, CourseView.GetRelationIndex(i, "Course_Series"));
-                        for (int subViewRow = 0; subViewRow < childView.RowCount; subViewRow++)
+                        if (childView != null)
                         {
-                            if (Convert.ToBoolean(childView.GetRowCellValue(subViewRow, "Edited")))
+                            if (childView.DataRowCount > 0)
                             {
-                                if (string.IsNullOrEmpty(childView.GetRowCellValue(subViewRow, "ID").ToString()))
+
+                                for (int subViewRow = 0; subViewRow < childView.DataRowCount; subViewRow++)
                                 {
-                                    using (OleDbCommand cmd = new OleDbCommand())
+                                    if (childView.GetRowCellValue(subViewRow, "Edited").ToString().Equals("1") ? true : false)
                                     {
-                                        cmd.Connection = sqlConn;
-                                        cmd.Transaction = sqlTrans;
-                                        cmd.CommandText = "INSERT INTO tblCourseSeries(" +
-                                            "[FKeyCourse]" +
-                                            ",[Name]" +
-                                            ",[Description]" +
-                                            ",[SortCode]" +
-                                            ")VALUES(" +
-                                            "@FKeyCourse" +
-                                            ",@Name" +
-                                            ",@Description" +
-                                            ",@SortCode" +
-                                            ")";
-                                        cmd.Parameters.AddWithValue("@FKeyCourse", CourseID);
-                                        cmd.Parameters.AddWithValue("@Name", childView.GetRowCellValue(subViewRow, "Name"));
-                                        cmd.Parameters.AddWithValue("@Description", childView.GetRowCellValue(subViewRow, "Description"));
-                                        cmd.Parameters.AddWithValue("@SortCode", childView.GetRowCellValue(subViewRow, "SortCode"));
-                                        toBeInserted = cmd.ExecuteNonQuery().Equals(1);
-                                    }
-                                }
-                                else
-                                {
-                                    using (OleDbCommand cmd = new OleDbCommand())
-                                    {
-                                        cmd.Connection = sqlConn;
-                                        cmd.Transaction = sqlTrans;
-                                        cmd.CommandText = "UPDATE tblCourseSeries " +
-                                            " SET [Name] = @Name" +
-                                            ",[SortCode] = @SortCode" +
-                                            ",[Description] = @Description" +
-                                            ",[DateUpdated] = (Now())" +
-                                            " WHERE ((([ID])=@ID) AND (([FKeyCourse])=@FKeyCourse))";
-                                        cmd.Parameters.AddWithValue("@Name", childView.GetRowCellValue(subViewRow, "Name").ToString());
-                                        cmd.Parameters.AddWithValue("@SortCode", childView.GetRowCellValue(subViewRow, "SortCode"));
-                                        cmd.Parameters.AddWithValue("@Description", childView.GetRowCellValue(subViewRow, "Description").ToString());
-                                        cmd.Parameters.AddWithValue("@ID", childView.GetRowCellValue(subViewRow, "ID"));
-                                        cmd.Parameters.AddWithValue("@FKeyCourse", childView.GetRowCellValue(subViewRow, "FKeyCourse"));
-                                        toBeInserted = cmd.ExecuteNonQuery().Equals(1);
+                                        if (string.IsNullOrEmpty(childView.GetRowCellValue(subViewRow, "ID").ToString()))
+                                        {
+                                            using (OleDbCommand cmd = new OleDbCommand())
+                                            {
+                                                cmd.Connection = sqlConn;
+                                                cmd.Transaction = sqlTrans;
+                                                cmd.CommandText = "INSERT INTO tblCourseSeries(" +
+                                                    "[FKeyCourse]" +
+                                                    ",[Name]" +
+                                                    ",[Description]" +
+                                                    ",[SortCode]" +
+                                                    ")VALUES(" +
+                                                    "@FKeyCourse" +
+                                                    ",@Name" +
+                                                    ",@Description" +
+                                                    ",@SortCode" +
+                                                    ")";
+                                                cmd.Parameters.AddWithValue("@FKeyCourse", CourseID);
+                                                cmd.Parameters.AddWithValue("@Name", childView.GetRowCellValue(subViewRow, "Name"));
+                                                cmd.Parameters.AddWithValue("@Description", childView.GetRowCellValue(subViewRow, "Description"));
+                                                cmd.Parameters.AddWithValue("@SortCode", childView.GetRowCellValue(subViewRow, "SortCode"));
+                                                toBeInserted = cmd.ExecuteNonQuery().Equals(1);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            using (OleDbCommand cmd = new OleDbCommand())
+                                            {
+                                                cmd.Connection = sqlConn;
+                                                cmd.Transaction = sqlTrans;
+                                                cmd.CommandText = "UPDATE tblCourseSeries " +
+                                                    " SET [Name] = @Name" +
+                                                    ",[SortCode] = @SortCode" +
+                                                    ",[Description] = @Description" +
+                                                    ",[DateUpdated] = (Now())" +
+                                                    " WHERE ((([ID])=@ID) AND (([FKeyCourse])=@FKeyCourse))";
+                                                cmd.Parameters.AddWithValue("@Name", childView.GetRowCellValue(subViewRow, "Name").ToString());
+                                                cmd.Parameters.AddWithValue("@SortCode", childView.GetRowCellValue(subViewRow, "SortCode"));
+                                                cmd.Parameters.AddWithValue("@Description", childView.GetRowCellValue(subViewRow, "Description").ToString());
+                                                cmd.Parameters.AddWithValue("@ID", childView.GetRowCellValue(subViewRow, "ID"));
+                                                cmd.Parameters.AddWithValue("@FKeyCourse", childView.GetRowCellValue(subViewRow, "FKeyCourse"));
+                                                toBeInserted = cmd.ExecuteNonQuery().Equals(1);
+                                            }
+                                        }
                                     }
                                 }
                             }
-                            
                         }
                     }
                 }
@@ -293,6 +328,11 @@ namespace Attendance_System
             DevExpress.XtraGrid.Views.Grid.GridView _masterView = (DevExpress.XtraGrid.Views.Grid.GridView)_view.ParentView;
             _masterView.SetRowCellValue(_view.SourceRowHandle, "Edited", true);
         }
+        private void SeriesView_GotFocus(object sender, EventArgs e)
+        {
+            selectedGrid = (DevExpress.XtraGrid.Views.Grid.GridView)(sender);
+        }
+
 
         private void CourseView_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
@@ -323,6 +363,12 @@ namespace Attendance_System
             //}
           
         }
+        private void CourseView_GotFocus(object sender, EventArgs e)
+        {
+            selectedGrid = (DevExpress.XtraGrid.Views.Grid.GridView)(sender);
+        }
+
+
 
 
     }

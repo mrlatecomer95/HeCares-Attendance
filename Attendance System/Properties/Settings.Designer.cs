@@ -22,17 +22,5 @@ namespace Attendance_System.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Provider=Microsoft.Jet.OLEDB.4.0;Dat" +
-            "a Source=C:\\Users\\DeveloperOne\\Documents\\Visual Studio 2010\\Projects\\Attendance " +
-            "System\\Attendance System\\HeCaresAttendance.mdb")]
-        public string AttendanceConnectionString {
-            get {
-                return ((string)(this["AttendanceConnectionString"]));
-            }
-        }
     }
 }

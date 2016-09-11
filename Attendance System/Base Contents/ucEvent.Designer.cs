@@ -250,7 +250,7 @@
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup4.Size = new System.Drawing.Size(354, 361);
-            this.layoutControlGroup4.Text = "Events";
+            this.layoutControlGroup4.Text = "Events List";
             // 
             // layoutControlItem1
             // 
@@ -286,13 +286,13 @@
             // txtDateCreated
             // 
             this.txtDateCreated.EditValue = null;
-            this.txtDateCreated.Location = new System.Drawing.Point(192, 89);
+            this.txtDateCreated.Location = new System.Drawing.Point(173, 89);
             this.txtDateCreated.Name = "txtDateCreated";
             this.txtDateCreated.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtDateCreated.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtDateCreated.Size = new System.Drawing.Size(339, 20);
+            this.txtDateCreated.Size = new System.Drawing.Size(358, 20);
             this.txtDateCreated.StyleController = this.layoutControl1;
             this.txtDateCreated.TabIndex = 5;
             // 
@@ -329,7 +329,7 @@
             this.cboSeries.Properties.ShowFooter = false;
             this.cboSeries.Properties.ShowHeader = false;
             this.cboSeries.Properties.ValueMember = "ID";
-            this.cboSeries.Size = new System.Drawing.Size(174, 20);
+            this.cboSeries.Size = new System.Drawing.Size(155, 20);
             this.cboSeries.StyleController = this.layoutControl1;
             this.cboSeries.TabIndex = 4;
             // 
@@ -376,7 +376,7 @@
             this.layoutControlItem3.CustomizationFormText = "Course";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 40);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(178, 40);
+            this.layoutControlItem3.Size = new System.Drawing.Size(159, 40);
             this.layoutControlItem3.Text = "Series";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(65, 13);
@@ -384,9 +384,9 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.txtDateCreated;
-            this.layoutControlItem4.Location = new System.Drawing.Point(178, 40);
+            this.layoutControlItem4.Location = new System.Drawing.Point(159, 40);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(343, 40);
+            this.layoutControlItem4.Size = new System.Drawing.Size(362, 40);
             this.layoutControlItem4.Text = "Date Created";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(65, 13);
@@ -396,7 +396,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 199);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(583, 119);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(521, 119);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5

@@ -7,8 +7,21 @@ namespace Attendance_System
 {
     public static class GLOBALS
     {
-        static OLEDB _DB;
-        public static OLEDB AttendanceDB
+        //static OLEDB _DB;
+        //public static OLEDB AttendanceDB
+        //{
+        //    get
+        //    {
+        //        return _DB;
+        //    }
+        //    set
+        //    {
+        //        _DB = value;
+        //    }
+        //}
+
+        static SQLite _DB;
+        public static SQLite AttendanceDB
         {
             get
             {
@@ -19,5 +32,6 @@ namespace Attendance_System
                 _DB = value;
             }
         }
+
     }
 }

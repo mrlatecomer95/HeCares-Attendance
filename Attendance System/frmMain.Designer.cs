@@ -83,6 +83,7 @@
             this.Biodata.Id = 1;
             this.Biodata.Name = "Biodata";
             this.Biodata.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            //this.Biodata.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Biodata_ItemClick);
             // 
             // cmdAdd
             // 
