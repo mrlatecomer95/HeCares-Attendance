@@ -90,14 +90,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AttendanceDataSet.cs">
-      <DependentUpon>AttendanceDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="AttendanceDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AttendanceDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Base Contents\Attendance.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,17 +150,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.config" />
-    <None Include="AttendanceDataSet.xsc">
-      <DependentUpon>AttendanceDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="AttendanceDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AttendanceDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="AttendanceDataSet.xss">
-      <DependentUpon>AttendanceDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
